@@ -52,6 +52,11 @@ func main() {
 		ServiceName:     *serviceName,
 		AllowedBackends: allowedBackends,
 		KeychainName:    *keychainName,
+		FilePasswordFunc: func(s string) (string, error) {
+			return os.Getenv("GO_KEYRING_FILE_PASSWORD"), nil
+		},
+		FileDir:       os.Getenv("GO_KEYRING_FILE_DIR"),
+		WinCredPrefix: os.Getenv("GO_KEYRING_WIN_CRED_PREFIX"),
 	})
 	if err != nil {
 		log.Fatal(err)
