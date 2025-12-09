@@ -14,7 +14,7 @@ func main() {
 	keyName := flag.String("key", "example", "The key to use")
 	backend := flag.String("backend", "", "A specific backend to use")
 	debug := flag.Bool("debug", false, "Whether to enable debugging in keyring")
-	listBackends := flag.Bool("list-backends", false, "Whether to list backends")
+	listBackends := flag.Bool("list-backends", false, "Whether to list backends\n\naccepted envs:\nGO_KEYRING_FILE_PASSWORD\nGO_KEYRING_FILE_DIR\nGO_KEYRING_WIN_CRED_PREFIX\n")
 
 	// actions to take
 	actionListKeys := flag.Bool("list-keys", false, "Whether to list keys")

@@ -20,13 +20,13 @@ for os in windows linux darwin ; do
 	if [ "$os" = "darwin" ]; then suffix="_macos"; fi
 	if [ "$os" = "linux" ]; then suffix=""; fi
 	if [ "$os" = "windows" ]; then suffix=".exe"; fi
-	GOOS=$os go build -v -o ./built/keyring"$suffix" ./cmd/keyring
+	GOOS=$os go build -v -o ./built/go-keyring-cli"$suffix" ./cmd/keyring
     if [ "$os" = "windows" ]; then
-	    GOOS=$os go build -v -o ./built/keyring-gui"$suffix" -ldflags "-H windowsgui" ./cmd/keyring
+	    GOOS=$os go build -v -o ./built/go-keyring-cli-gui"$suffix" -ldflags "-H windowsgui" ./cmd/keyring
     fi
 done
 
-GOOS=linux GOARCH=arm64 go build -v -o ./built/keyring_arm64 ./cmd/keyring
+GOOS=linux GOARCH=arm64 go build -v -o ./built/go-keyring-cli_arm64 ./cmd/keyring
 
 
 
